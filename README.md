@@ -9,21 +9,21 @@ DostGPT Vision is a web application that leverages the power of OpenAI's GPT-4 f
 ## Installation
 
 Clone the repositary: 
-```git clone 
+```git clone https://github.com/talhadar90/dostGPT-vision.git```
 
 Create a virtual environment:
-```python3 -m venv venv
+```python3 -m venv venv```
 
 Activate the virtual environment:
 
 On Windows:
-```venv\Scripts\activate
+```venv\Scripts\activate```
 
 On macOS/Linux:
-```source venv/bin/activate
+```source venv/bin/activate```
 
 Install pip requirements:
-```pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 Add OpenAI API in app.py:
-```api_key = ""
+```api_key = ""```
