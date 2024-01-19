@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+.container {
+    text-align: center;
+}
+
+.container .wrapper {
+    text-align: left;
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+strong {
+    color: #555;
+}
+
+img {
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* ... existing styles ... */
+
+.loading-bar {
+    height: 10px;
+    background-color: #ddd;
+    width: 100%;
+    position: relative;
+}
+
+.loading-bar::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 50%;
+    background-color: #4caf50;
+    position: absolute;
+    animation: loadingAnimation 1s infinite;
+}
+
+@keyframes loadingAnimation {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+#assistant-message {
+    white-space: pre-line;
+}
+

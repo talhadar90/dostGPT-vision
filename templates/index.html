@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dostGPT Vision</title>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>dostGPT Vision</h1>
+        <div class="wrapper">
+            <form method="post">
+                <label for="image_url">Enter Image URL:</label>
+                <input type="text" id="image_url" name="image_url" autocomplete="off" required>
+                
+                <label for="prompt">Enter Prompt:</label>
+                <input type="text" id="prompt" name="prompt" autocomplete="off" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        
+            {% if image_url %}
+                <h2>Preview:</h2>
+                <img src="{{ image_url }}" alt="Image Preview">
+        
+                {% if result %}
+                    <h2>Response:</h2>
+                    
+                    {% if 'choices' in result %}
+                        {% if result['loading'] %}
+                            <p>Loading...</p>
+                            <div class="loading-bar"></div>
+                        {% else %}
+                            <!-- Use python-markdown for proper formatting -->
+                            <div id="assistant-message" class="markdown-content">{{ result['choices'][0]['message']['content'] | markdown | safe }}</div>
+                            <script type="text/javascript">
+                                // MathJax rendering function
+                                MathJax.Hub.Queue(["Typeset", MathJax.Hub, "assistant-message"]);
+                            </script>
+                        {% endif %}
+                    {% else %}
+                        <p>No choices available in the result.</p>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
